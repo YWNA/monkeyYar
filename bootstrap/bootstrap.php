@@ -5,7 +5,6 @@
  * Date: 18-3-26
  * Time: 下午3:04
  */
-namespace bootstrap;
-use src\Kernel;
-$kernel = new Kernel();
+require_once dirname(__DIR__) . '/src/Kernel.php';
+$kernel = new src\Kernel();
 return $kernel;

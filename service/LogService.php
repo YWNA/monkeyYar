@@ -12,7 +12,7 @@ namespace service;
 class LogService
 {
     public function info(){
-        file_put_contents('./a.log',date('H:i:s',time()));
-        return;
+        file_put_contents(dirname(__DIR__)."/a.log",'info'.date('H:i:s',time()));
+        return dirname(__DIR__);
     }
 }

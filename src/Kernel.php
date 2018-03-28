@@ -7,9 +7,12 @@
  */
 
 namespace src;
-require_once '../vendor/autoload.php';
 
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+require_once dirname(__DIR__) . '/service/LogService.php';
 use Pimple\Container;
+use service\LogService;
+
 class Kernel
 {
     private $container;
@@ -20,17 +23,21 @@ class Kernel
     }
 
     function run(){
+        $service = $_GET['service'];
         $service = $this->service($_GET['service']);
-        $server = new Yar_Server($service);
+        $server = new \Yar_Server($service);
         $server->handle();
     }
 
     private function service($service){
         if (!isset($this->container[$service])){
             $this->container[$service] = function () use ($service) {
-                return new $service;
+//                $stdClass = "service\\{$service}";
+//                return new $stdClass;
+                return new LogService();
             };
         }
+        $this->container[$service]->info($service);
         return $this->container[$service];
     }
 }
