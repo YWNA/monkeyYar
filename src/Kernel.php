@@ -6,12 +6,11 @@
  * Time: 上午9:52
  */
 
-namespace src;
+namespace Monkey;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
-require_once dirname(__DIR__) . '/service/LogService.php';
+
 use Pimple\Container;
-use service\LogService;
 
 class Kernel
 {
@@ -23,7 +22,6 @@ class Kernel
     }
 
     function run(){
-        $service = $_GET['service'];
         $service = $this->service($_GET['service']);
         $server = new \Yar_Server($service);
         $server->handle();
@@ -32,9 +30,8 @@ class Kernel
     private function service($service){
         if (!isset($this->container[$service])){
             $this->container[$service] = function () use ($service) {
-//                $stdClass = "service\\{$service}";
-//                return new $stdClass;
-                return new LogService();
+                $stdClass = "Monkey\\Service\\{$service}";
+                return new $stdClass();
             };
         }
         $this->container[$service]->info($service);

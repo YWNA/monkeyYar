@@ -1,4 +1,9 @@
 {
+    "autoload": {
+        "psr-4": {
+            "Monkey\\":"src"
+        }
+    },
     "require": {
         "pimple/pimple": "^3.0"
     }

@@ -6,5 +6,5 @@
  * Time: 下午3:04
  */
 require_once dirname(__DIR__) . '/src/Kernel.php';
-$kernel = new src\Kernel();
+$kernel = new Monkey\Kernel();
 return $kernel;
