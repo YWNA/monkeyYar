@@ -19,6 +19,7 @@ class Kernel
     {
         $this->container = new Container();
         $this->container['kernel'] = $this;
+        Env::load(require_once dirname(__DIR__) . '/env.php');
     }
 
     function run(){

@@ -1,10 +1,14 @@
 {
-    "autoload": {
-        "psr-4": {
-            "Monkey\\":"src"
-        }
-    },
+  "autoload": {
+    "psr-4": {
+      "Monkey\\":"src"
+        },
+      "files": [
+        "src/functions.php"
+      ]
+  },
     "require": {
-        "pimple/pimple": "^3.0"
+        "pimple/pimple": "^3.0",
+        "monolog/monolog": "^1.23"
     }
 }

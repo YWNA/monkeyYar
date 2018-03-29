@@ -12,6 +12,7 @@ namespace Monkey\Service;
 class LogService
 {
     public function info(){
-        return dirname(__DIR__);
+
+        return env('DEBUG');
     }
 }
