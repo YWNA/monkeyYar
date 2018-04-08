@@ -19,6 +19,15 @@ class BaseController extends \Pimple\Container
         parent::__construct();
         $this->registerProviders();
     }
+    public function __get($id)
+    {
+        return $this->offsetGet($id);
+    }
+
+    public function __set($id, $value)
+    {
+        $this->offsetSet($id,$value);
+    }
     private function registerProviders()
     {
         foreach ($this->providers as $provider) {

@@ -9,7 +9,7 @@
 namespace Monkey\Service;
 
 
-class LogService extends Service
+class LogService
 {
     public function info(){
         return env('DEBUG');

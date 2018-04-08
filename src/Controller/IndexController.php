@@ -11,7 +11,8 @@ namespace Monkey\Controller;
 class IndexController extends BaseController
 {
     function info(){
-        $this->log->info(__CLASS__);
+        $log = $this->log;
+        return $log->info(__CLASS__);
     }
 
 }
