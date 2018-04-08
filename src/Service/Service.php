@@ -13,9 +13,20 @@ use Pimple\Container;
 
 class Service extends Container
 {
-    private $container;
+    private $providers = [
+        \LogServiceProvider::class,
+    ];
+
     public function __construct()
     {
         parent::__construct();
+        $this->registerProviders();
+    }
+
+    function registerProviders()
+    {
+        foreach ($this->providers as $provider){
+            $this->register($provider);
+        }
     }
 }

@@ -11,7 +11,7 @@ class LogServiceProvider implements \Pimple\ServiceProviderInterface
     public function register(\Pimple\Container $pimple)
     {
         $container['log'] = function () {
-            return new root\LogService();
+            return new \Monkey\Service\LogService();
         };
     }
 }

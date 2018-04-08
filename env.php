@@ -8,5 +8,6 @@
 
 return [
     'DEBUG' => true,
-    'LOG_DIR' => '',
+    'LOG_DIR' => dirname(__DIR__),
+    'RPC_SERVICE_DOMAIN' => 'yar'
 ];

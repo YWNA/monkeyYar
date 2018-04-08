@@ -6,19 +6,20 @@
  * Time: 下午5:37
  */
 namespace Monkey\Controller;
+
 class BaseController extends \Pimple\Container
 {
-    protected $provider = [
-        \root\LogService::class
+    protected $providers = [
+        \LogServiceProvider::class
     ];
     function __construct()
     {
         parent::__construct();
-        $this->registerProvider();
+        $this->registerProviders();
     }
-    private function registerProvider()
+    private function registerProviders()
     {
-        foreach ($this->provider as $provider) {
+        foreach ($this->providers as $provider) {
             $this->register(new $provider());
         }
     }
