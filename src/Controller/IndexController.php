@@ -10,7 +10,7 @@ namespace Monkey\Controller;
 
 class IndexController extends BaseController
 {
-    function index(){
+    function info(){
         $this->log->info(__CLASS__);
     }
 

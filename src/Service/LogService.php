@@ -12,7 +12,6 @@ namespace Monkey\Service;
 class LogService extends Service
 {
     public function info(){
-        $log = $this->log;
         return env('DEBUG');
     }
 }

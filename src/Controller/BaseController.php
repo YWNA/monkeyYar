@@ -7,10 +7,12 @@
  */
 namespace Monkey\Controller;
 
+use Monkey\Provider\LogProvider;
+
 class BaseController extends \Pimple\Container
 {
     protected $providers = [
-        \LogServiceProvider::class
+        LogProvider::class
     ];
     function __construct()
     {
