@@ -10,8 +10,6 @@ namespace Monkey;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-use Monolog\Handler\StreamHandler;
-use Monolog\Logger;
 use Pimple\Container;
 
 class Kernel
@@ -26,19 +24,19 @@ class Kernel
     }
 
     function run(){
-        $service = $this->service($_GET['service']);
-        $server = new \Yar_Server($service);
+        $controller = $this->controller($_GET['controller']);
+        $server = new \Yar_Server($controller);
         $server->handle();
     }
 
-    private function service($service){
-        if (!isset($this->container[$service])){
-            $this->container[$service] = function () use ($service) {
-                $stdClass = "Monkey\\Controller\\{$service}";
+    private function controller($controller){
+        if (!isset($this->container[$controller])){
+            $this->container[$controller] = function () use ($controller) {
+                $stdClass = "Monkey\\Controller\\{$controller}";
                 return new $stdClass();
             };
         }
-        return $this->container[$service];
+        return $this->container[$controller];
     }
 
 }
