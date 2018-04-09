@@ -9,6 +9,7 @@
   },
     "require": {
         "pimple/pimple": "^3.0",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+    "ramsey/uuid": "^3.7"
     }
 }

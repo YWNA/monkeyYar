@@ -26,6 +26,7 @@ class Kernel
     function run(){
         $controller = $this->controller($_GET['controller']);
         $server = new \Yar_Server($controller);
+//        $server->
         $server->handle();
     }
 
