@@ -22,20 +22,20 @@ class Env
             case 'false':
                 return false;
             default:
-                return null;
+                return $value;
         }
     }
 
     public static function load(array $env_array){
         foreach ($env_array as $key => $value){
-            switch ($value){
-                case true:
-                    $value = 'true';
-                    break;
-                case false:
-                    $value = 'false';
-                    break;
-            }
+//            switch ($value){
+//                case true:
+//                    $value = 'true';
+//                    break;
+//                case false:
+//                    $value = 'false';
+//                    break;
+//            }
             putenv("$key=$value");
         }
     }

@@ -17,11 +17,11 @@ use Pimple\Container;
 class Kernel
 {
     private $container;
+
     public function __construct()
     {
         $this->container = new Container();
         $this->container['kernel'] = $this;
-        $this->container['log'] = $this->createLog();
         Env::load(require_once dirname(__DIR__) . '/env.php');
     }
 
@@ -38,23 +38,7 @@ class Kernel
                 return new $stdClass();
             };
         }
-//        $this->getLog()->info(date('Y-m-d H:i:s',time()));
-        $this->container[$service]->info($service);
         return $this->container[$service];
     }
 
-    private function createLog($name = 'log'){
-        $path = env('LOG_DIR');
-        $log = new Logger($name);
-        $log->pushHandler(new StreamHandler(__DIR__),Logger::WARNING);
-//        return $log;
-    }
-
-    protected function getLog(){
-        if (isset($this->container['log'])){
-            return $this->container['log'];
-        } else {
-            throw new \Exception('log not exist');
-        }
-    }
 }
