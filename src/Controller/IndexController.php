@@ -16,9 +16,9 @@ class IndexController extends BaseController
         return __FUNCTION__;
     }
 
-    function concurrent($parameters){
-        $this->monolog->info(print_r($parameters,true));
+    function concurrent($parameter1 = null, $patemeter2 = null){
+        $this->monolog->info(print_r($parameter1,true));
 //        throw new \Yar_Server_Exception('error');
-        return __FUNCTION__;
+        return $parameter1 . $patemeter2;
     }
 }
