@@ -9,6 +9,10 @@
   },
     "require": {
         "pimple/pimple": "^3.0",
-        "monolog/monolog": "^1.23"
+        "monolog/monolog": "^1.23",
+    "ramsey/uuid": "^3.7",
+    "doctrine/dbal": "^2.7",
+    "davedevelopment/phpmig": "^1.4",
+    "symfony/console": "^3"
     }
 }
