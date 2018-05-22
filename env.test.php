@@ -2,10 +2,9 @@
 /**
  * Created by PhpStorm.
  * User: chenbo
- * Date: 18-3-29
- * Time: 下午2:19
+ * Date: 18-4-11
+ * Time: 下午6:48
  */
-
 return [
     'DEBUG' => true,
     'LOG_NAME' => 'rpc',
@@ -18,11 +17,6 @@ return [
         'host' => '127.0.0.1',
         'username' => 'root',
         'password' => 'root',
-        'db_name' => 'monkey',
-        'db_name_test' => 'monkey_test'
-    ],
-    'REDIS' => [
-        'host' => '127.0.0.1',
-        'port' => 6379
+        'db_name' => 'monkey_test'
     ]
 ];

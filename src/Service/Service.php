@@ -2,31 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: chenbo
- * Date: 18-3-28
- * Time: 下午5:48
+ * Date: 18-4-23
+ * Time: 上午9:53
  */
 
 namespace Monkey\Service;
 
-
-use Pimple\Container;
-
-class Service extends Container
+class Service extends \Monkey\Container
 {
-    private $providers = [
-        \LogServiceProvider::class,
-    ];
 
-    public function __construct()
-    {
-        parent::__construct();
-        $this->registerProviders();
-    }
-
-    function registerProviders()
-    {
-        foreach ($this->providers as $provider){
-            $this->register($provider);
-        }
-    }
 }
