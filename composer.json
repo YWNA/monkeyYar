@@ -14,5 +14,8 @@
     "doctrine/dbal": "^2.7",
     "davedevelopment/phpmig": "^1.4",
     "symfony/console": "^3"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.4"
   }
 }
