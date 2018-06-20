@@ -13,9 +13,13 @@
     "ramsey/uuid": "^3.7",
     "doctrine/dbal": "^2.7",
     "davedevelopment/phpmig": "^1.4",
-    "symfony/console": "^3"
+    "symfony/console": "^3",
+    "ywna/swbt": "^0.1.0"
   },
-  "require-dev": {
-    "codeception/codeception": "^2.4"
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
   }
 }
