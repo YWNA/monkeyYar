@@ -3,6 +3,7 @@
   "type": "project",
   "homepage": "https://github.com/YWNA/monkeyYar",
   "license": "Apache-2.0",
+  "keywords": ["yar","php"],
   "authors": [
     {
       "name": "chenbo",
