@@ -1,6 +1,8 @@
 {
   "name": "ywna/monkey-yar",
   "type": "project",
+  "homepage": "https://github.com/YWNA/monkeyYar",
+  "license": "Apache-2.0",
   "authors": [
     {
       "name": "chenbo",
