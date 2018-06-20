@@ -1,4 +1,12 @@
 {
+  "name": "ywna/monkey-yar",
+  "type": "project",
+  "authors": [
+    {
+      "name": "chenbo",
+      "email": "chenbotome@163.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Monkey\\":"src"
