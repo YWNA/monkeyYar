@@ -5,5 +5,6 @@
  * Date: 18-3-27
  * Time: 上午9:49
  */
-$kernel = require 'bootstrap/bootstrap.php';
+require_once 'src/Kernel.php';
+$kernel = new \Monkey\Kernel();
 $kernel->run();

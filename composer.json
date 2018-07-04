@@ -1,4 +1,15 @@
 {
+  "name": "ywna/monkey-yar",
+  "type": "project",
+  "homepage": "https://github.com/YWNA/monkeyYar",
+  "license": "Apache-2.0",
+  "keywords": ["yar","php"],
+  "authors": [
+    {
+      "name": "chenbo",
+      "email": "chenbotome@163.com"
+    }
+  ],
   "autoload": {
     "psr-4": {
       "Monkey\\":"src"
@@ -7,9 +18,19 @@
         "src/functions.php"
       ]
   },
-    "require": {
-        "pimple/pimple": "^3.0",
-        "monolog/monolog": "^1.23",
-    "ramsey/uuid": "^3.7"
+  "require": {
+    "pimple/pimple": "^3.0",
+    "monolog/monolog": "^1.23",
+    "ramsey/uuid": "^3.7",
+    "doctrine/dbal": "^2.7",
+    "davedevelopment/phpmig": "^1.4",
+    "symfony/console": "^3",
+    "ywna/swbt": "^0.1.0"
+  },
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
     }
+  }
 }
