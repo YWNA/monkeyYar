@@ -13,7 +13,7 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 class Kernel
 {
     public function run(){
-        if (empty($service = $_GET['service'])){
+        if (!isset($_GET['service']) || empty($service = $_GET['service'])){
             throw new \Exception('缺少Service参数');
         }
         $className = $this->getClassName($service);
