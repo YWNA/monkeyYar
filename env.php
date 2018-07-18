@@ -10,7 +10,7 @@ return [
     'DEBUG' => true,
     'LOG_NAME' => 'rpc',
     'LOG_DIR' => __DIR__ . '/storage/logs/',
-    'RPC_SERVICE_DOMAIN' => 'yar',
+    'RPC_SERVICE_DOMAIN' => 'yar.com',
     'MAPPING' => [
         'ak' => 'AKService'
     ],
@@ -25,5 +25,5 @@ return [
         'host' => '127.0.0.1',
         'port' => 6379
     ],
-    'BeanstalkdHost' => '127.0.0.1'
+    'BEANSTALKD_HOST' => '127.0.0.1'
 ];
