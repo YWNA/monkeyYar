@@ -1,11 +1,9 @@
 # MonkeyYar
 A PHP Framework based on Yar for RPC Service
-## 安装
-* PHP扩展Yar,项目地址:[https://github.com/YWNA/yar](https://github.com/YWNA/yar)
-  1. 使用[pecl](http://pecl.php.net/)安装,如果本地没有安装pecl,可以使用 sudo apt-get install php-pear
-  2. pecl install yar
-* 依赖包
-  1. [composer](https://getcomposer.org/) install 或者 php composer.phar install
+## 安装前提
+* PHP的扩展[Yar](https://github.com/laruence/yar.git)
+* 项目依赖包 [composer](https://getcomposer.org/) install 或者 直接在本项目根目录下执行 php composer.phar install
+## 初始化
 ## 特点
 * 数据库表脚本
   1. 初始化
