@@ -9,6 +9,7 @@
 namespace Monkey\Service\Impl;
 
 use Codeception\Util\Debug;
+use Doctrine\DBAL\Schema\Schema;
 use Monkey\Model\Impl\AccessSecretKeyModelImpl;
 use Monkey\Service\AKService;
 use Monkey\Service\Service;
@@ -49,11 +50,11 @@ class AKServiceImpl extends Service implements AKService
 
     public function sign($accessKey, $data, $time)
     {
-        $ak = $this->model->getByWhere("access_key = ?", [$accessKey]);
+        $ak = $this->model->getRowByWhere("access_key = ?", [$accessKey]);
         if (empty($ak)){
             throw new \Exception('not exist');
         }
-        $secretKey = $ak[0]['secret_key'];
+        $secretKey = $ak['secret_key'];
         $this->monolog->info(print_r($ak, true));
         $info = json_encode([
             'data' => $data,
@@ -76,8 +77,10 @@ class AKServiceImpl extends Service implements AKService
             if ($originSign === $sign){
                 return true;
             } else {
-                $a = 'aaa';
+                return false;
             }
+        } else {
+            $this->model->getRowByWhere("access_key = $accessKey");
         }
         return false;
     }

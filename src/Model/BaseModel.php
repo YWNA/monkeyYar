@@ -81,15 +81,22 @@ class BaseModel extends Container
         return $data;
     }
 
-    public function getByWhere($where, $param){
+    public function getRowsByWhere($where, $param){
         $ids = $this->db->executeQuery("SELECT id FROM {$this->table} WHERE {$where}", $param);
-//        $sql = "SELECT id FROM `{$this->table}` WHERE {$where}";
-//        $ids = $this->db->executeQuery($sql);
         $data = [];
         foreach ($ids as $id){
             array_push($data, $this->getById($id['id']));
         }
         return $data;
+    }
+
+    public function getRowByWhere($where, $param = []){
+        $rows = $this->getRowsByWhere($where, $param);
+        if ($rows){
+            return $rows[0];
+        } else {
+            return [];
+        }
     }
 
     public function select($sql, $id, $lifetime = 3600 * 60 * 20)
@@ -98,6 +105,14 @@ class BaseModel extends Container
         $stmt = $this->db->executeCacheQuery($sql, [], [], $cache);
         $data = $stmt->fetchAll();
         $stmt->closeCursor();
+        return $data;
+    }
+
+    public function listTableColumns(){
+        $columns = $this->db->getSchemaManager()->listTableColumns($this->table);
+        foreach ($columns as $column){
+            $data[] = $column->getName();
+        }
         return $data;
     }
 
@@ -110,4 +125,6 @@ class BaseModel extends Container
             $this->cache->delete($this->generateRedisId($cacheId));
         }
     }
+
+
 }

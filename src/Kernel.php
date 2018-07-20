@@ -10,16 +10,17 @@ namespace Monkey;
 
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
-class Kernel
+class Kernel extends Container
 {
     public function run(){
         if (!isset($_GET['service']) || empty($service = $_GET['service'])){
-            throw new \Exception('缺少Service参数');
+            throw new \Exception('缺少service参数');
         }
         $className = $this->getClassName($service);
-        $stdClass = "\\Monkey\\Service\\Impl\\{$className}Impl";
-        $instance = new $stdClass;
-        $server = new \Yar_Server($instance);
+        if (!class_exists($stdClass = "\\Monkey\\Service\\Impl\\{$className}Impl")){
+            throw new \Exception("类{$className}Impl不存在");
+        }
+        $server = new \Yar_Server(new $stdClass);
         $server->handle();
     }
 

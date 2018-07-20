@@ -11,6 +11,7 @@ namespace Monkey\Provider;
 
 use Doctrine\Common\Cache\RedisCache;
 use Doctrine\DBAL\Configuration;
+use Doctrine\DBAL\Schema\Schema;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
