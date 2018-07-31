@@ -8,7 +8,12 @@
 
 namespace Monkey\Service;
 
+
+
 class Service extends \Monkey\Container
 {
-
+    public function __construct()
+    {
+        parent::__construct();
+    }
 }

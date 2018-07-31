@@ -8,9 +8,8 @@
 
 namespace Monkey\Service\Impl;
 
-use Codeception\Util\Debug;
-use Doctrine\DBAL\Schema\Schema;
 use Monkey\Model\Impl\AccessSecretKeyModelImpl;
+use Monkey\Response;
 use Monkey\Service\AKService;
 use Monkey\Service\Service;
 use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
@@ -19,18 +18,19 @@ use Ramsey\Uuid\Uuid;
 class AKServiceImpl extends Service implements AKService
 {
     private $model;
+    private $lifeTime;
 
     public function __construct()
     {
         parent::__construct();
         $this->model = new AccessSecretKeyModelImpl();
+        $this->lifeTime = 3600;
     }
 
-    public function info(){
-        $this->monolog->info(__FUNCTION__);
-        return __FUNCTION__;
-    }
-
+    /**
+     * 生成密钥对
+     * @return array|\Monkey\Service\秘钥信息|string
+     */
     public function generate()
     {
         try {
@@ -45,7 +45,8 @@ class AKServiceImpl extends Service implements AKService
         $secretKey = join('', explode('-', $secretKey->toString()));
 
         $model = new AccessSecretKeyModelImpl();
-        return $model->create(['access_key' => $accessKey, 'secret_key' => $secretKey]);
+        $this->responseData = $model->create(['access_key' => $accessKey, 'secret_key' => $secretKey]);
+        return Response::success($this->responseData);
     }
 
     public function sign($accessKey, $data, $time)
@@ -67,21 +68,40 @@ class AKServiceImpl extends Service implements AKService
 
     public function checkSign($accessKey, $data, $time, $originSign)
     {
-        if ($this->cache->contains("sign:{$accessKey}:secret_key")){
-            $secretKey = $this->cache->fetch("sign:{$accessKey}:secret_key");
-            $info = [
-                'data' => $data,
-                'time' => $time,
-            ];
-            $sign = hash_hmac('sha256', json_encode($info), $secretKey);
-            if ($originSign === $sign){
-                return true;
+        $this->responseData = false;
+        if ($this->checkTime($time)) {
+            if ($this->cache->contains("sign:{$accessKey}:secret_key")) {
+                $secretKey = $this->cache->fetch("sign:{$accessKey}:secret_key");
+                $info      = [
+                    'data' => $data,
+                    'time' => $time,
+                ];
+                $sign      = hash_hmac('sha256', json_encode($info), $secretKey);
+                if ($originSign === $sign) {
+                    $this->responseData = true;
+                } else {
+                    $this->responseData = false;
+                }
             } else {
-                return false;
+                $this->model->getRowByWhere("access_key = $accessKey");
             }
         } else {
-            $this->model->getRowByWhere("access_key = $accessKey");
+
         }
-        return false;
+        return Response::success($this->responseData, $this->responseMsg);
+    }
+
+    /**
+     * 验证是否过期
+     * @param $time
+     *
+     * @return bool
+     */
+    private function checkTime($time){
+        if (($time + $this->lifeTime) > time()){
+            return false;
+        } else {
+            return true;
+        }
     }
 }

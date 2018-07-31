@@ -10,8 +10,6 @@ namespace Monkey\Service;
 
 interface AKService
 {
-    public function info();
-
     /**
      * @return 秘钥信息
      */
