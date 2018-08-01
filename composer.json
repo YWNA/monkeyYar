@@ -25,7 +25,8 @@
     "doctrine/dbal": "^2.7",
     "davedevelopment/phpmig": "^1.4",
     "symfony/console": "^3",
-    "ywna/swbt": "^0.1.0"
+    "ywna/swbt": "^0.1.0",
+    "qiniu/php-sdk": "^7.2"
   },
   "repositories": {
     "packagist": {

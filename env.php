@@ -12,7 +12,8 @@ return [
     'LOG_DIR' => __DIR__ . '/storage/logs/',
     'RPC_SERVICE_DOMAIN' => 'yar.com',
     'MAPPING' => [
-        'ak' => 'AKService'
+        'ak' => 'AKService',
+        'storage' => 'StorageService'
     ],
     'MYSQL' => [
         'host' => '127.0.0.1',
@@ -25,5 +26,11 @@ return [
         'host' => '127.0.0.1',
         'port' => 6379
     ],
-    'BEANSTALKD_HOST' => '127.0.0.1'
+    'BEANSTALKD_HOST' => '127.0.0.1',
+    'Storage' => [
+        'Qiniu' => [
+            'accessKey' => 'ScdsaqzWl6umeGXJNPwCgkTk71Lq9DYYmtQWLuDa',
+            'secretKey' => 'MbxNgvJqKkuaD0eDCos72hhOA_0HcOJjv9Cjoewb'
+        ]
+    ]
 ];
