@@ -26,7 +26,8 @@
     "davedevelopment/phpmig": "^1.4",
     "symfony/console": "^3",
     "ywna/swbt": "^0.1.0",
-    "qiniu/php-sdk": "^7.2"
+    "qiniu/php-sdk": "^7.2",
+    "aliyuncs/oss-sdk-php": "^2.3"
   },
   "repositories": {
     "packagist": {

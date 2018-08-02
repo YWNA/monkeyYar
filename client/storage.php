@@ -12,5 +12,5 @@ try {
     $result = $client->upload($file, 'book');
     var_dump($result);
 }catch (Exception $e){
-    echo $e->getMessage();
+    echo $e->getMessage() . "\n";
 }

@@ -30,7 +30,13 @@ return [
     'Storage' => [
         'Qiniu' => [
             'accessKey' => 'ScdsaqzWl6umeGXJNPwCgkTk71Lq9DYYmtQWLuDa',
-            'secretKey' => 'MbxNgvJqKkuaD0eDCos72hhOA_0HcOJjv9Cjoewb'
+            'secretKey' => 'MbxNgvJqKkuaD0eDCos72hhOA_0HcOJjv9Cjoewb',
+            'endpoint' => 'http://pcrk7psks.bkt.clouddn.com'
+        ],
+        'Aliyun' => [
+            'accessKey' => 'LTAIPQAoMP2YT2lw',
+            'secretKey' => 'XOij0UIgvMHEBOBSjzfbIM0FWGPxRV',
+            'endpoint' => 'http://oss-cn-hangzhou.aliyuncs.com'
         ]
     ]
 ];

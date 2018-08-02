@@ -24,6 +24,7 @@ class StorageServiceImpl extends Service implements StorageService
     {
         $provider = new Provider();
         $client = $provider->create('Qiniu', $bucket);
+//        $client = $provider->create('Aliyun', $bucket);
         return $client->upload(time(), $fileString);
     }
 }
