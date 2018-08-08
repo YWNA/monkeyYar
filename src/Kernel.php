@@ -12,13 +12,13 @@ require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 class Kernel extends Container
 {
-    public function run(){
+	public function run():void {
         $stdClass = $this->getStdClass($_GET);
         $server = new \Yar_Server(new $stdClass);
         $server->handle();
     }
 
-    private function getStdClass($globalGet){
+    private function getStdClass(array $globalGet): string {
         if (!isset($globalGet['service']) || empty($service = $globalGet['service'])){
             throw new \Exception('缺少service参数');
         }
@@ -29,7 +29,7 @@ class Kernel extends Container
         return $stdClass;
     }
 
-    private function getClassName($service){
+    private function getClassName(string $service):string {
         $mapping = env('MAPPING');
         if (isset($mapping[$service])){
             return $mapping[$service];

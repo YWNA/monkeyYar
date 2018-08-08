@@ -13,11 +13,11 @@ class Response
 {
     static private $version = '0.1';
 
-    static public function success($data, $msg = ''){
+    static public function success(array $data, string $msg = ''): string {
         return self::response($data, $msg, 200);
     }
 
-    static private function response($data, $msg, $code){
+    static private function response(array $data, string $msg, int $code): string {
         return json_encode([
             'version' => self::$version,
             'result' => [

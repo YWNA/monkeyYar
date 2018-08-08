@@ -23,8 +23,8 @@ class StorageServiceImpl extends Service implements StorageService
     public function upload($fileString, $bucket)
     {
         $provider = new Provider();
-        $client = $provider->create('Qiniu', $bucket);
-//        $client = $provider->create('Aliyun', $bucket);
-        return $client->uploadBySlic(time(), $fileString);
+//        $client = $provider->create('Qiniu', $bucket);
+        $client = $provider->create('Aliyun', $bucket);
+        return $client->upload(time(), $fileString);
     }
 }
