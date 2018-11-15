@@ -9,6 +9,7 @@
 namespace Monkey\Service\Impl;
 
 
+use app\index\factory\storage\StorageFactory;
 use Monkey\Service\Service;
 use Monkey\Service\StorageService;
 use Monkey\Storage\Provider;
@@ -31,7 +32,8 @@ class StorageServiceImpl extends Service implements StorageService
     public function test()
     {
         $image = file_get_contents(__DIR__ . '/../../../client/test.png');
-        $provider = new Provider();
-        return $provider->upload($image, 'cb-book');
+        $provider = new StorageFactory();
+        $aliyunOSS = $provider->create('aliyun');
+        return $aliyunOSS->init('chenbotest');
     }
 }

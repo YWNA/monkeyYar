@@ -22,5 +22,16 @@ return [
     ],
     'REDIS' => [
         'host' => '127.0.0.1'
+    ],
+    'storage' => [
+        'aliyun' => [
+            'access_key_id' => 'LTAIp5HKgzDo4dmO',
+            'access_key_secret' => '9g044cBB7s0CbHdYWH2xcH45zAbDsC',
+            'endpoint' => 'oss-cn-hangzhou.aliyuncs.com',
+            'bucket' => 'cn-book',
+            'dir' => 'testo',
+            'access_ttl' => 3600,
+            'callback_url' => '',
+        ]
     ]
 ];
