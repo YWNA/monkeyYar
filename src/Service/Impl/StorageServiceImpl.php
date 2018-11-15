@@ -27,4 +27,11 @@ class StorageServiceImpl extends Service implements StorageService
         $client = $provider->create('Aliyun', $bucket);
         return $client->upload(time(), $fileString);
     }
+
+    public function test()
+    {
+        $image = file_get_contents(__DIR__ . '/../../../client/test.png');
+        $provider = new Provider();
+        return $provider->upload($image, 'cb-book');
+    }
 }

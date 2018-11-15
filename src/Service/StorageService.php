@@ -12,4 +12,6 @@ namespace Monkey\Service;
 interface StorageService
 {
     public function upload($fileString, $bucket);
+
+    public function test();
 }
