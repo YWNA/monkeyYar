@@ -28,13 +28,13 @@ class StorageAliyun implements Storage
 
     public function __construct()
     {
-        $this->accessKeyID     = env('aliyun')['access_key_id'];
-        $this->accessKeySecret = env('aliyun')['access_key_secret'];
-        $this->endpoint        = env('aliyun')['endpoint'];
-        $this->bucket          = env('aliyun')['bucket'];
-        $this->dir             = env('aliyun')['dir'];
-        $this->accessTTL       = env('aliyun')['access_ttl'];
-        $this->callbackUrl     = env('aliyun')['callback_url'];
+        $this->accessKeyID     = env('storage')['aliyun']['access_key_id'];
+        $this->accessKeySecret = env('storage')['aliyun']['access_key_secret'];
+        $this->endpoint        = env('storage')['aliyun']['endpoint'];
+        $this->bucket          = env('storage')['aliyun']['bucket'];
+        $this->dir             = env('storage')['aliyun']['dir'];
+        $this->accessTTL       = env('storage')['aliyun']['access_ttl'];
+        $this->callbackUrl     = env('storage')['aliyun']['callback_url'];
     }
 
     public function uploadWithString($fileString, $name)
