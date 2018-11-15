@@ -11,7 +11,8 @@ return [
     'LOG_DIR' => __DIR__ . '/storage/logs/',
     'RPC_SERVICE_DOMAIN' => 'yarak',
     'MAPPING' => [
-        'ak' => 'AKService'
+        'ak' => 'AKService',
+        'storage' => 'StorageService'
     ],
     'MYSQL' => [
         'host' => '127.0.0.1',
