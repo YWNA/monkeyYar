@@ -1,5 +1,5 @@
 vendor
 .idea
-storage
+/storage
 swbt
 env.php
