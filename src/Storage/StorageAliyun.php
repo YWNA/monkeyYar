@@ -21,7 +21,7 @@ class StorageAliyun implements Storage
     private $accessKeyID;
     private $accessKeySecret;
     private $callbackUrl;
-    static $aclDefault = 'default'; // 文件遵循存储空间的访问权限。dddada
+    static $aclDefault = 'default'; // 文件遵循存储空间的访问权限。
     static $aclPrivate = 'private'; // 文件的拥有者和授权用户有该文件的读写权限，其他用户没有权限操作该文件。
     static $aclPublicRead = 'public-read'; // 文件的拥有者和授权用户有该文件的读写权限，其他用户只有文件的读权限。请谨慎使用该权限。
     static $aclPrivateReadWrite = 'public-read-write'; // 所有用户都有该文件的读写权限。请谨慎使用该权限。

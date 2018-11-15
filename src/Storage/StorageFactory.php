@@ -11,7 +11,6 @@ namespace Monkey\Storage;
 
 class StorageFactory
 {
-//
     public function create($name){
         $stdClass = __NAMESPACE__ . "\\Storage$name";
         return new $stdClass;

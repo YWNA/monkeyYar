@@ -1,6 +1,6 @@
 <?php
 $env = require_once 'env.php';
-$url = "http://{$env['RPC_SERVICE_DOMAIN']}/rpc.php?service=ak";
+$url = "http://{$env['RPC_SERVICE_DOMAIN']}/rpc.php?service=storage";
 $client = new Yar_Client($url);
 $client->SetOpt(YAR_OPT_CONNECT_TIMEOUT, 5000);
 $client->SetOpt(YAR_OPT_HEADER, array("ak: val"));
@@ -8,7 +8,7 @@ $client->SetOpt(YAR_OPT_HEADER, array("ak: val"));
 echo $url . "\n";
 
 try {
-    $result = $client->generate();
+    $result = $client->client();
     var_dump($result);
 }catch (Exception $e){
     echo $e->getMessage();

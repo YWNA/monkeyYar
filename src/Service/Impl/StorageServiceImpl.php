@@ -9,10 +9,10 @@
 namespace Monkey\Service\Impl;
 
 
-use app\index\factory\storage\StorageFactory;
 use Monkey\Service\Service;
 use Monkey\Service\StorageService;
 use Monkey\Storage\Provider;
+use Monkey\Storage\StorageFactory;
 
 class StorageServiceImpl extends Service implements StorageService
 {
