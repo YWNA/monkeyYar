@@ -8,7 +8,7 @@ $client->SetOpt(YAR_OPT_HEADER, array("ak: val"));
 echo $url . "\n";
 
 try {
-    $result = $client->client();
+    $result = $client->test();
     var_dump($result);
 }catch (Exception $e){
     echo $e->getMessage();
