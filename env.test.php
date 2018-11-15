@@ -18,5 +18,8 @@ return [
         'username' => 'root',
         'password' => 'root',
         'db_name' => 'monkey_test'
+    ],
+    'REDIS' => [
+        'host' => '127.0.0.1'
     ]
 ];
